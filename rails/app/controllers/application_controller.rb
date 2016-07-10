@@ -3,11 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :null_session
 
-  before_action :authenticate_user_from_token!, :handle_html
+  # http://start.jcolemorrison.com/angularjs-rails-4-1-and-ui-router-tutorial/
+
+  before_action :authenticate_user_from_token!
   around_action :user_time_zone, if: :current_user
 
   def index
-    render file: 'public/index.html'
+    render layout: layout_name
   end
 
   protected
@@ -17,6 +19,14 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def layout_name
+    if params[:layout] == 0
+        false
+    else
+        'application'
+    end
+  end
 
   def authenticate_user_from_token!
     authenticate_with_http_token do |token, options|
@@ -32,10 +42,5 @@ class ApplicationController < ActionController::Base
 
   def user_time_zone(&block)
     Time.use_zone(current_user.time_zone, &block)
-  end
-
-  # If this is a get request for HTML, just render the ember app.
-  def handle_html
-    render 'public/index.html' if request.method == 'GET' && request.headers['Accept'].match(/html/)
   end
 end

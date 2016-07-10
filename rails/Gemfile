@@ -40,6 +40,18 @@ gem 'redcarpet'
 # date parsing
 gem 'chronic'
 
+# Bower for frontend dependencies
+gem 'bower-rails'
+
+# twitter bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2'
+
+# angularjs
+gem 'angularjs-rails'
+gem 'angular-ui-bootstrap-rails' #for bootstrap UI
+gem 'angular-rails-templates'
+
 group :production do
   gem 'rails_12factor'
   gem 'puma'

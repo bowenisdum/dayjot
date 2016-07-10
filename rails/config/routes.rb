@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'application#index'
+
   # ENTRIES
   get 'entries/new' => 'application#index', as: :entry_new
   get 'entries/:id/edit' => 'application#index', as: :entry_edit
@@ -28,7 +30,6 @@ Rails.application.routes.draw do
   # background processing admin
   match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
 
-  # catch-all for ember app
-  get '*path' => 'application#index', :constraints => { :format => 'html' }
-
+  get "*path.html" => "application#index", :layout => 0
+  get '*path' => 'application#index'
 end

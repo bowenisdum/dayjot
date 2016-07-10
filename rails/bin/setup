@@ -6,22 +6,6 @@
 # Exit if any subcommand fails
 set -e
 
-# Setup ember deps
-cd ../ember
-if ! command -v npm &>/dev/null; then
-  echo "npm is not installed."
-  echo "See https://www.npmjs.org for install instructions."
-fi
-echo "Installing npm dependencies.."
-npm install
-
-if ! command -v bower &>/dev/null; then
-  echo "bower is not installed."
-  echo "See http://bower.io for install instructions."
-fi
-echo "Installing bower dependencies.."
-bower install
-
 # Setup rails deps
 cd ../rails
 
