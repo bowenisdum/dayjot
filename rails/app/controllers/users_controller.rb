@@ -35,9 +35,9 @@ class UsersController < ApplicationController
   end
 
   def finish_password_reset
-    user = User.with_reset_password_token(params[:reset_password_token])
+    user = User.with_reset_password_token(reset_params[:reset_password_token])
     if user
-      if user.reset_password!(reset_params[:password], reset_params[:password_confirmation])
+      if user.reset_password(reset_params[:password], reset_params[:password_confirmation])
         render json: {}
       else
         render json: { errors: user.errors.full_messages }, status: 400
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def reset_params
-    params.permit(:password, :password_confirmation)
+    params.permit(:password, :password_confirmation, :reset_password_token)
   end
 
   # Check if a reset_password_token is provided in the request

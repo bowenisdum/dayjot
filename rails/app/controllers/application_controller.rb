@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user_from_token!
   around_action :user_time_zone, if: :current_user
 
+  # rescue_from ::ActiveRecord::RecordNotFound, with: :record_not_found
+  # rescue_from ::NameError, with: :error_occurred
+  # rescue_from ::ActionController::RoutingError, with: :error_occurred
+
   def index
     render layout: layout_name
   end
@@ -16,6 +20,16 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     render(json: {}, status: 401) unless current_user
+  end
+
+  def record_not_found(exception)
+    render json: {error: exception.message}.to_json, status: 404
+    return
+  end
+
+  def error_occurred(exception)
+    render json: {error: exception.message}.to_json, status: 500
+    return
   end
 
   private
