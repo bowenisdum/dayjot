@@ -1,6 +1,73 @@
-<div class="container">
-    <h1>The Home View!</h1>
-    <ul>
-        <li ng-repeat="thing in things">{{thing}}</li>
-    </ul>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+            <div class="col-sm-5">
+            	<h1>Most precisous memories, Forever!</h1>
+            </div>
+            
+            <div class="col-sm-1 middle-border"></div>
+            <div class="col-sm-1"></div>
+            	
+            <div class="col-sm-5">
+            	
+            	<div class="form-box">
+            		<div class="form-top">
+                		<div class="form-top-left">
+                			<h3>Sign up now</h3>
+                    		<p>Fill in the form below to get instant access:</p>
+                		</div>
+                		<div class="form-top-right">
+                			<i class="fa fa-pencil"></i>
+                		</div>
+                    </div>
+                    <div class="form-bottom" ng-controller="SignupCtrl">
+	                    <form role="form" action="" method="post" class="registration-form">
+    			            	<div class="form-group">
+    			                <div class="form-group">
+    			                	<label class="sr-only" for="form-email">Email</label>
+    			                	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email" ng-model="form.user.email">
+    			                </div>
+    			                <div class="form-group">
+    			                	<label class="sr-only" for="form-last-name">Password</label>
+    			                	<input type="password" name="form-last-name" placeholder="Password..." class="form-last-name form-control" id="form-last-name" ng-model="form.user.password">
+    			                </div>
+    			                <div class="form-group">
+  			                	<label class="sr-only" for="form-last-name">Password Confirmation</label>
+  			                	<input type="password" name="form-last-name" placeholder="Password Confirmation..." class="form-last-name form-control" id="form-last-name" ng-model="form.user.password_confirmation">
+  			                </div>
+			                   <button type="submit" class="btn btn-lg btn-success" ng-click="submit($event)">Sign me up!</button>
+		            	     </form>
+                    </div>
+            	</div>
+            	
+            </div>
+        </div>
+        
+    </div>
+  </div>
 </div>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+  	<div class="col-md-4">
+      <h2>In the Cloud</h2>
+      <p>Your memories accessible any where in the world on any device!</p>
+   	</div>
+    <div class="col-md-4">
+      <h2>No Ads</h2>
+      <p>We believe there should be no advertising associated with the most memoriable moments of your life!</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>$3 a month.</h2>
+      <p>Storing all your life's highlights is tough work, we do our best with your contributions.</p>
+    </div>	
+  </div>
+
+  <hr>
+
+  <footer>
+    <p>&copy; 2015 Company, Inc.</p>
+  </footer>
+</div> <!-- /container -->

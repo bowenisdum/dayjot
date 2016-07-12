@@ -5,7 +5,10 @@
       "angular": "latest",
       "angular-ui-router": "latest",
       "angular-animate": "latest",
-      "bootstrap-sass-official": "latest"
+      "bootstrap-sass-official": "latest",
+      "angular-local-storage": "latest",
+      "underscore": "latest",
+      "angular-bootstrap": "latest"
     }
   },
   "vendor": {

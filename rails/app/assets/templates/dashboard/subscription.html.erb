@@ -1,0 +1,12 @@
+<h2>Subscribe</h2>
+<div ng-controller="SubscriptionCtrl" id="subscriptionCtrlDiv">
+	<div ng-if="subscriptionActive()">
+		<p>Your currently subscribed.</p>
+		<button class="btn btn-primary" ng-click="cancel($event)">Cancel Monthly Subscription</button>
+	</div>
+	<div ng-if="!subscriptionActive()">
+		<p>Activate your subscription now!</p>
+		<p>For $5.00 a month you will be able to upload as many videos as you want!</p>
+		<button class="btn btn-primary" id="customButton" ng-click="subscribe($event)">Activate Monthly Subscription</button>
+	</div>
+</div>

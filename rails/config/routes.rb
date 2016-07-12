@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get  'password-reset' => 'application#index', as: :edit_user_password
 
   # USERS
-  devise_for :users, controllers: {sessions: 'sessions', registrations: 'registrations'}
+  devise_for :users, controllers: {sessions: 'sessions', registrations: 'registrations', confirmations: 'confirmations'}
   resources :users, only: [:create, :update] do
     get 'me' => 'users#me', on: :collection
   end

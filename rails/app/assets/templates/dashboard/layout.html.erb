@@ -1,11 +1,14 @@
-<div class="container">
+<div class="container" ng-controller="TimelineCtrl">
     <div class="row">
     <div class="col-sm-3 dashboard-navigation">
-        <h4>Dashboard Navigation</h4>
+        <h2>Timeline</h2>
         <ul class="nav nav-pills nav-stacked">
-            <li><a ui-sref="dashboard.one">One</a></li>
-            <li><a ui-sref="dashboard.two">Two</a></li>
-            <li><a ui-sref="dashboard.three">Three</a></li>
+            <li ng-repeat="(month, entries) in allEntries()" ng-class="{active: selectedMonth == month}" >
+                <a class="btn-fake" ng-click="selectMonth(month)">{{latestMonth() == month ? "Latest" : month}} <span class="badge">{{entries.length}}</span></a>
+            </li>
+            <li ng-if="!latestMonth()" class="active">
+                <a class="btn-fake">Latest <span class="badge">0</span></a>
+            </li>
         </ul>
     </div>
     <div class="col-sm-9">

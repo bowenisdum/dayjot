@@ -1,14 +1,49 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container">
-
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">My App!</a>
+<div ng-controller="NavCtrl">
+  <nav class="navbar navbar-inverse navbar-fixed-top" ng-if="!loggedIn()">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">VidJou</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right" ng-controller="LoginCtrl">
+          <div class="form-group">
+            <input type="text" placeholder="Email" class="form-control" ng-model="formData.user.email">
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control" ng-model="formData.user.password">
+          </div>
+          <button type="submit" class="btn btn-success" ng-click="submit($event)">Sign in</button>
+        </form>
+      </div><!--/.navbar-collapse -->
     </div>
-
-    <ul class="nav navbar-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="/dashboard">Dashboard</a></li>
-    </ul>
-
-  </div>
-</nav>
+  </nav>
+  <nav class="navbar navbar-inverse navbar-fixed-top" ng-if="loggedIn()">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref="dashboard.timeline">VidJou</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li ng-class="{active: currentState() == 'dashboard.timeline'}"><a ui-sref="dashboard.timeline">Timeline <span class="sr-only">(current)</span></a></li>
+        <li ng-class="{active: currentState() == 'dashboard.new'}"><a ui-sref="dashboard.new">New</a></li>
+        <li ng-class="{active: currentState() == 'dashboard.subscription'}"><a ui-sref="dashboard.subscription">Subscription</a></li>
+      </ul>
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right" ng-controller="LoginCtrl">
+          <button type="submit" class="btn btn-success" ng-click="logout($event)">Logout</button>
+        </form>
+      </div><!--/.navbar-collapse -->
+    </div>
+  </nav>
+</div>

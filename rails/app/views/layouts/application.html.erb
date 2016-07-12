@@ -1,11 +1,12 @@
 <!doctype html>
 <html>
  <head>
-   <title>Journal</title>
+   <title>VidJou</title>
    <base href="/">
    <%= stylesheet_link_tag 'application', media: 'all' %>
    <%= javascript_include_tag 'application' %>
    <%= csrf_meta_tags %>
+   <script src="https://checkout.stripe.com/checkout.js"></script>
  </head>
  <body ng-app="mainApp">
    <div ng-include="'navbar.html'"></div>

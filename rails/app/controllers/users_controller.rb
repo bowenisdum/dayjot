@@ -4,9 +4,8 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(register_params)
-
     if user.save
-      render json: user, status: :created
+      render json: user.as_json.merge!({authentication_token: user.authentication_token}), status: :created
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end

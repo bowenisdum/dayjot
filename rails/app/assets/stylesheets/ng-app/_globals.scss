@@ -24,4 +24,15 @@
     &.ng-enter.ng-enter-active{
         @include opacity(1);
     }
+    
+    .container {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+}
+
+.btn-fake {
+    &:hover {
+        cursor: pointer;
+    }
 }

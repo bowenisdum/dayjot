@@ -147,7 +147,7 @@ class User < ActiveRecord::Base
 
     self.status = 'active'
     self.plan_status = 'active'
-    self.last_4_digits = customer.cards.data.first["last4"]
+    self.last_4_digits = customer.sources.data.first["last4"]
     self.stripe_customer_id = customer.id
     self.stripe_token = nil
 
