@@ -12,7 +12,7 @@ class Entry < ActiveRecord::Base
 
   validates :user, presence: true
   validates :entry_date, presence: true
-  validates :body, presence: true, length: { maximum: 50000 }
+  validates :body, length: { maximum: 50000 }
 
   validate :unique_entry_date
 
