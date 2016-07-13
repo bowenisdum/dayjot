@@ -8,3 +8,4 @@
 //= require angular-bootstrap
 //= require_tree .
 //= require_tree ../templates
+//= require ng-jwplayer

@@ -52,9 +52,10 @@ gem 'angularjs-rails'
 gem 'angular-ui-bootstrap-rails' #for bootstrap UI
 gem 'angular-rails-templates'
 
+gem 'puma'
+
 group :production do
   gem 'rails_12factor'
-  gem 'puma'
   gem 'newrelic_rpm'
 end
 

@@ -3,7 +3,7 @@ angular.module('mainApp')
     var authTokenInjector = {
         request: function(config) {
 
-    		let AuthorizationHeader = localStorageService.get("AuthorizationHeader");
+    		var AuthorizationHeader = localStorageService.get("AuthorizationHeader");
 
             if (AuthorizationHeader) {
                 config.headers['Authorization'] = AuthorizationHeader;

@@ -4,6 +4,13 @@
 		<div class="panel panel-default" ng-repeat="entry in allEntries()[selectedMonth]">
 			<div class="panel-body">
 				<h3>{{entry.entry_date}}</h3>
+				<div ng-if="entry.video_file_name">
+					<jwplayer ng-src="{{getVideoUrl(entry)}}"
+					          player-options="jwplayerOptions"
+					          player-id="player-{{entry.video_file_name}}">
+					</jwplayer>
+				</div>
+				<hr>
 				<div>{{entry.body}}</div>
 			</div>
 		</div>

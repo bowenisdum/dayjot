@@ -100,6 +100,8 @@ class EntriesController < ApplicationController
       entry.body = params['stripped-text']
     end
 
+    entry.video_file_name = params['video_file_name'];
+
     if entry.save
       render json: entry
     else
@@ -119,6 +121,6 @@ class EntriesController < ApplicationController
   end
 
   def entry_params
-    params.require(:entry).permit(:body, :entry_date)
+    params.require(:entry).permit(:body, :entry_date, :video_file_name)
   end
 end

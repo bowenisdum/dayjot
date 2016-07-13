@@ -4,7 +4,8 @@ angular
     'ui.router',
     'ui.bootstrap',
     'templates',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ng-jwplayer'
 ])
 .config(["$stateProvider", "$urlRouterProvider", "$locationProvider", "$httpProvider", "localStorageServiceProvider", function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, localStorageServiceProvider) {
 

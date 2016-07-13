@@ -1,2 +1,2 @@
-web:        rails s --port $PORT
+web:        rails s -b 0.0.0.0 --port $PORT
 worker:     bundle exec rake jobs:work

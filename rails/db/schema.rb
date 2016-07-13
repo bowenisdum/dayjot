@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710202010) do
+ActiveRecord::Schema.define(version: 20160712013415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,13 +38,15 @@ ActiveRecord::Schema.define(version: 20160710202010) do
     t.binary   "encrypted_body"
     t.text     "body"
     t.date     "entry_date"
-    t.string   "source",         default: "web"
+    t.string   "source",          default: "web"
     t.uuid     "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "video_file_name"
   end
 
   add_index "entries", ["user_id", "entry_date"], name: "index_entries_on_user_id_and_entry_date", using: :btree
+  add_index "entries", ["video_file_name"], name: "index_entries_on_video_file_name", unique: true, using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "email",                  default: "",           null: false
