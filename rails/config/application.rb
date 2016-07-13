@@ -16,6 +16,8 @@ module DayJotApi
       end
     end
 
+    config.middleware.use ActionDispatch::Flash
+
     config.autoload_paths += %W(#{config.root}/lib)
 
     # Settings in config/environments/* take precedence over those specified here.
