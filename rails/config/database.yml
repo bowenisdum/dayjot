@@ -1,6 +1,14 @@
+production: 
+  adapter: postgresql
+  encoding: utf8
+  database: vidjou_production
+  pool: 5
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: vidjou_development
   pool: 5
   username: <%= ENV["DB_USERNAME"] %>
